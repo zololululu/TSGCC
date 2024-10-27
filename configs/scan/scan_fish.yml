@@ -1,0 +1,41 @@
+# setup
+setup: scan
+dataset_name: BeetleFly
+
+# Loss
+criterion: scan
+criterion_kwargs:
+   entropy_weight: 5.0  # 5.0
+   weight_t: 0.05
+   alpha: 0.1
+
+# Weight update
+update_cluster_head_only: False # Update full network in SCAN
+num_heads: 5 # Only use one head
+
+# Model
+
+
+# Dataset
+#train_db_name: FISH_TRAIN
+#val_db_name: FISH_TEST
+num_classes: 2
+num_neighbors: 10
+feat_len: 160
+
+# Transformations
+augmentation_strategy: ours
+
+# Hyperparameters
+optimizer: adam
+optimizer_kwargs:
+   lr: 0.0001
+   weight_decay: 0.0001
+epochs: 5000
+batch_size: 128
+num_workers: 8  #8
+
+# Scheduler
+scheduler: cosine
+scheduler_kwargs:
+   lr_decay_rate: 0.95
